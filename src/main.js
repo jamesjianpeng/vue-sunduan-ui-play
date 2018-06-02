@@ -2,9 +2,10 @@
 import Vue from 'vue';
 import App from '@/App.vue';
 import router from '@/router';
+import SunduanUI from 'vue-sunduan-ui';
 
-// Vue.config.productionTip = false;
-// Vue.config.productionTip = process.env.NODE_ENV !== 'production';
+console.log(SunduanUI);
+Vue.use(SunduanUI);
 
 const createAppId = function() {
   const scriptTag = document.body.lastChild;
