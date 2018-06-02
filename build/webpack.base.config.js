@@ -16,8 +16,12 @@ const webpackConfig = {
   },
   resolve: {
     alias: {
-      '@': resolve('src')
-    }
+      '@': resolve('src/'),
+      'layout': resolve('src/layout/'),
+      'pages': resolve('src/pages/'),
+      'components': resolve('src/components/')
+    },
+    extensions: ['.js', '.vue', '.json']
   },
   module: {
     rules: [
@@ -91,7 +95,8 @@ module.exports = webpackConfig
  *           - reles.use.option
  * 5. resolve
  *    - resolve.alias 设置路径别名
- *
+ *    - resolve.extensions 设置结束文件的扩展名，若是写的话，在 import 的时候没有加入扩展名的时候会报错
+ *       Q: 为什么 配置 ‘.json’ 的时候 在开发环境下会循环加载
  * 6. plugins:
  *   1. require('html-webpack-plugin')
  *      title: 文档的标题

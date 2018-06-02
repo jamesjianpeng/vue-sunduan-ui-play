@@ -1,10 +1,12 @@
 <template lang="html">
-  <router-view></router-view>
+  <div class="">
+    button
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'sd-button',
 };
 </script>
 

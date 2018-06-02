@@ -1,9 +1,7 @@
 
 import Vue from 'vue';
 import App from '@/App.vue';
-import {vueSunduanSelectTest} from '@';
-
-Vue.use(vueSunduanSelectTest);
+import router from '@/router';
 
 // Vue.config.productionTip = false;
 // Vue.config.productionTip = process.env.NODE_ENV !== 'production';
@@ -17,6 +15,7 @@ const createAppId = function() {
 };
 
 new Vue({
+  router,
   el: createAppId(),
   render: (h) => h(App),
 });
