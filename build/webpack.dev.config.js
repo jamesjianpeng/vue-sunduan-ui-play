@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.config');
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = merge(baseConfig, {
   output: {
@@ -23,21 +23,11 @@ const config = merge(baseConfig, {
     }
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
-    // new webpack.DefinePlugin({
-    //   'process.env': {
-    //     'NODE_NEV': 'development'
-    //   }
-    // }),
-    // new UglifyJsPlugin({
-    //   uglifyOptions: {
-    //     compress: {
-    //       warnings: false,
-    //       drop_console: true
-    //     }
-    //   },
-    //   parallel: true
-    // })
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'vue-sunduan-selet',
+      filename: 'index.html'
+    })
   ]
 })
 
