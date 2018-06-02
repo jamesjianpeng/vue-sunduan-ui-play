@@ -4,8 +4,9 @@
   "description": "vue-sunduan-ui-play",
   "main": "index.js",
   "scripts": {
-    "build": "node ./build/build.js $STATS",
+    "build": "node ./build/build.js $STATS $ANALYZER",
     "build:stats": "STATS=true webpack-dashboard npm run build",
+    "build:analyzer": "STATS=true ANALYZER=true webpack-dashboard npm run build",
     "dev": "webpack-dev-server --config build/webpack.dev.config.js",
     "unit": "karma start ./test/unit/karma.conf.js",
     "test": "npm run unit"
@@ -59,6 +60,7 @@
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^3.12.0",
+    "webpack-bundle-analyzer": "^2.13.1",
     "webpack-dashboard": "^2.0.0",
     "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.2"

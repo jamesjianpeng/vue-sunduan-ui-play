@@ -7,17 +7,7 @@ const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const StatsPlugin = require('stats-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
-
-const statsPlugin = [
-  new StatsPlugin('../stats/stats.json', {
-    chunkModules: true,
-    exclude: [/node_modules/]
-  }),
-  new Visualizer({
-    filename: '../stats/statistics.html'
-  }),
-  new DashboardPlugin()
-]
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const resolve = function(dir) {
   return path.join(__dirname, '..', dir)
@@ -42,8 +32,23 @@ const config = merge(baseConfig, {
   ]
 });
 
+const statsPlugin = [
+  new StatsPlugin('../stats/stats.json', {
+    chunkModules: true,
+    exclude: [/node_modules/]
+  }),
+  new Visualizer({
+    filename: '../stats/statistics.html'
+  }),
+  new DashboardPlugin()
+]
+
 if (process.env.STATS && JSON.parse(process.env.STATS)) {
   config.plugins = config.plugins.concat(statsPlugin)
+}
+
+if (process.env.ANALYZER && JSON.parse(process.env.ANALYZER)) {
+  config.plugins.push(new BundleAnalyzerPlugin())
 }
 
 module.exports = config;
