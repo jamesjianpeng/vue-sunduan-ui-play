@@ -62,11 +62,7 @@ const webpackConfig = {
     ]
   },
   plugins: [
-    new VueLoaderPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'vue-sunduan-selet',
-      filename: 'index.html'
-    })
+    new VueLoaderPlugin()
   ]
 }
 
