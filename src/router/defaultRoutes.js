@@ -1,16 +1,13 @@
-import SdSelect from 'pages/select';
-import SdButton from 'pages/button';
-
 const defaultRoutes = [
   {
     path: '/select',
     name: 'select',
-    component: SdSelect,
+    component: () => import(/* pages-select */'pages/select'),
   },
   {
     path: '/button',
     name: 'button',
-    component: SdButton,
+    component: () => import(/* pages-button */'pages/button'),
   },
 ];
 

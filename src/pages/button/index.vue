@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    button
+    {{text}}
   </div>
 </template>
 
