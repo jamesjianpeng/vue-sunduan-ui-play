@@ -4,9 +4,10 @@
   "description": "vue-sunduan-ui-play",
   "main": "index.js",
   "scripts": {
-    "build": "node ./build/build.js $STATS $ANALYZER",
+    "build": "node ./build/build.js $STATS $ANALYZER $NO_UGLIFYJS",
     "build:stats": "STATS=true webpack-dashboard npm run build",
     "build:analyzer": "STATS=true ANALYZER=true webpack-dashboard npm run build",
+    "build:nouglifyjs": "NO_UGLIFYJS=true STATS=true webpack-dashboard npm run build",
     "dev": "webpack-dev-server --config build/webpack.dev.config.js",
     "unit": "karma start ./test/unit/karma.conf.js",
     "test": "npm run unit"
@@ -63,7 +64,8 @@
     "webpack-bundle-analyzer": "^2.13.1",
     "webpack-dashboard": "^2.0.0",
     "webpack-dev-server": "^2.11.1",
-    "webpack-merge": "^4.1.2"
+    "webpack-merge": "^4.1.2",
+    "webpack-visualizer-plugin": "^0.1.11"
   },
   "config": {
     "commitizen": {
@@ -73,7 +75,6 @@
   "dependencies": {
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
-    "vue-sunduan-ui": "^1.0.4",
-    "webpack-visualizer-plugin": "^0.1.11"
+    "vue-sunduan-ui": "^1.0.4"
   }
 }

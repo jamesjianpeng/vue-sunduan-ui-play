@@ -1,5 +1,6 @@
 const path = require('path');
 const baseConfig = require('./webpack.base.config');
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
@@ -15,6 +16,9 @@ const resolve = function(dir) {
 
 const config = merge(baseConfig, {
   devtool: 'source-map',
+  entry: {
+    vendor: ['vue', 'vue-sunduan-ui']
+  },
   plugins: [
     new HtmlWebpackPlugin({
       filename: resolve('dist/index.html'),
@@ -25,9 +29,9 @@ const config = merge(baseConfig, {
         description: 'Vue sunduan ui play'
       }
     }),
-    new UglifyjsWebpackPlugin({
-      sourceMap: true,
-      parallel: true
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: Infinity,
     })
   ]
 });
@@ -49,6 +53,13 @@ if (process.env.STATS && JSON.parse(process.env.STATS)) {
 
 if (process.env.ANALYZER && JSON.parse(process.env.ANALYZER)) {
   config.plugins.push(new BundleAnalyzerPlugin())
+}
+
+if (!process.env.NO_UGLIFYJS) {
+  config.plugins.push(new UglifyjsWebpackPlugin({
+    sourceMap: true,
+    parallel: true
+  }))
 }
 
 module.exports = config;

@@ -8,7 +8,9 @@ const resolve = function(dir) {
 
 const webpackConfig = {
   target: 'web',
-  entry: './src/main.js',
+  entry: {
+    main: './src/main.js'
+  },
   output: {
     path: path.resolve(__dirname, '../dist'), // 控制 index.html 资源目录的初始位置
     filename: '[name].[chunkhash:8].js',
