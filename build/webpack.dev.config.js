@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = merge(baseConfig, {
   output: {
+    filename: '[name].[hash:8].js', // 在使用 webpack-dev-server 的时候，不能使用 chnukhash否则会有 error
     publicPath: '/'
   },
   devServer: {
