@@ -17,7 +17,10 @@ const resolve = function(dir) {
 const config = merge(baseConfig, {
   devtool: 'source-map',
   entry: {
-    vendor: ['vue', 'vue-sunduan-ui']
+    vendor: ['vue']
+  },
+  output: {
+    filename: 'js/[name].[chunkhash:8].js',
   },
   plugins: [
     new HtmlWebpackPlugin({
