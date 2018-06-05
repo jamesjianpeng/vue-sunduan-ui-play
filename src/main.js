@@ -3,6 +3,7 @@ import Vue from 'vue';
 import App from '@/App.vue';
 import router from '@/router';
 import SunduanUI from 'vue-sunduan-ui';
+import '@/style/app.scss';
 
 console.log(SunduanUI);
 Vue.use(SunduanUI);

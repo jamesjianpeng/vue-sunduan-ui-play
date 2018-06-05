@@ -2,8 +2,11 @@ const path = require('path');
 const baseConfig = require('./webpack.base.config');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const StatsPlugin = require('stats-webpack-plugin');
@@ -20,7 +23,28 @@ const config = merge(baseConfig, {
     vendor: ['vue']
   },
   output: {
-    filename: 'js/[name].[chunkhash:8].js',
+    filename: 'static/js/[name].[chunkhash:8].js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'vue-style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                 minimize: true // 可缩小 40%
+              }
+            },
+            {
+              loader: 'sass-loader'
+            }
+          ]
+        })
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -35,6 +59,10 @@ const config = merge(baseConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: Infinity,
+    }),
+    new ExtractTextPlugin({
+      filename: 'static/css/[name].[contenthash].css',
+      allChunks: true,
     })
   ]
 });

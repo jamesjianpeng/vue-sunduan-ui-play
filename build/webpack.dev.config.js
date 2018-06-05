@@ -9,6 +9,18 @@ const config = merge(baseConfig, {
     filename: '[name].[hash:8].js', // 在使用 webpack-dev-server 的时候，不能使用 chnukhash否则会有 error
     publicPath: '/'
   },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      }
+    ]
+  },
   devServer: {
     host: '0.0.0.0',
     contentBase: '/',

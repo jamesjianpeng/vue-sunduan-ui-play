@@ -33,7 +33,7 @@ const webpackConfig = {
         include: [resolve('src'), resolve('test')],
         use: [
           {
-            loader: "eslint-loader"
+            loader: 'eslint-loader'
           }
         ]
       },
@@ -52,13 +52,6 @@ const webpackConfig = {
           {
             loader: 'babel-loader',
           }
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader'
         ]
       }
     ]

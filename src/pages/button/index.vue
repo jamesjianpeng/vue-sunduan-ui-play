@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="button">
     {{text}}
   </div>
 </template>
@@ -10,5 +10,9 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="scss">
+.button {
+  display: inline-block;
+  width: 10%;
+}
 </style>

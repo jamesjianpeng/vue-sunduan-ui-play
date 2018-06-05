@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div class="select">
     select
     <sd-select-test
       :data="listOne"
@@ -50,5 +50,12 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="scss">
+body {
+  background-color: rgba(128, 128, 128, 1);
+  .select {
+    display: inline-block;
+    width: 10%;
+  }
+}
 </style>
