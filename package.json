@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamesjianpeng/vue-sunduan-select.git"
+    "url": "git+https://github.com/jamesjianpeng/vue-sunduan-ui-play.git"
   },
   "keywords": [
     "vue",
@@ -26,9 +26,9 @@
   "author": "jamesjianpeng",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jamesjianpeng/vue-sunduan-select/issues"
+    "url": "https://github.com/jamesjianpeng/vue-sunduan-ui-play/issues"
   },
-  "homepage": "https://github.com/jamesjianpeng/vue-sunduan-select#readme",
+  "homepage": "https://github.com/jamesjianpeng/vue-sunduan-ui-play#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
